@@ -1380,10 +1380,9 @@ namespace SmevTransformSpi
             }
         }
 
-        void WriteEndStartTag(bool empty)
+        public void WriteNamespaces()
         {
-            xmlEncoder.StartAttribute(false);
-            /*for (int i = nsTop; i > stack[top].prevNsTop; i--)
+            for (int i = nsTop; i > stack[top].prevNsTop; i--)
             {
                 if (!nsStack[i].declared)
                 {
@@ -1406,7 +1405,12 @@ namespace SmevTransformSpi
                 xmlEncoder.Write(stack[top].defaultNs);
                 textWriter.Write(this.quoteChar);
                 stack[top].defaultNsState = NamespaceState.DeclaredAndWrittenOut;
-            }*/
+            }
+        }
+
+        void WriteEndStartTag(bool empty)
+        {
+            xmlEncoder.StartAttribute(false);
             xmlEncoder.EndAttribute();
             if (empty)
             {

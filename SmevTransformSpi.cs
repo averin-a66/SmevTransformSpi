@@ -21,7 +21,7 @@ namespace SmevTransformSpi
             Stack<List<Namespace>> prefixMappingStack = new Stack<List<Namespace>>();
             using (XmlReader src = XmlReader.Create(argSrc))
             //using (XmlWriter dst = XmlWriter.Create(argDst))
-            using (XmlWriter dst = new XmlSmevWriter(argDst, Encoding.UTF8))
+            using (XmlSmevWriter dst = new XmlSmevWriter(argDst, Encoding.UTF8))
             {
                 int prefixCnt = 1;
 
@@ -94,10 +94,11 @@ namespace SmevTransformSpi
                             // Вывести namespace prefix mappings для текущего элемента.
                             // Их порядок детерминирован, т.к. перед мэппингом атрибуты были отсортированы.
                             // Поэтому дополнительной сотрировки здесь не нужно.
-                            foreach(Namespace mapping in myPrefixMappings)
+                            dst.WriteNamespaces();
+                            /*foreach (Namespace mapping in myPrefixMappings)
                             {
-                                //dst.WriteN("xmlns:" + mapping.Prefix, mapping.NamespaceURI);
-                            }
+                                dst.WriteN("xmlns:" + mapping.Prefix, mapping.NamespaceURI);
+                            }*/
 
                             // Вывести атрибуты.
                             // N.B. Мы не выводим атрибуты сразу вместе с элементом, используя метод
