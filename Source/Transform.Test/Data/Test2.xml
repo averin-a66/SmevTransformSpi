@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+<qwe xmlns="http://t.e.s.t">
+ <myns:rty xmlns:myns="http://y.e.s">yes!</myns:rty>
+ <iop value="yes, yes!"/>
+</qwe>

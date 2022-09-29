@@ -10,7 +10,7 @@ using System.Security;
 
 
 
-namespace SmevTransformSpi
+namespace GostCryptography.Xml.SmevTransformSpi
 {
     internal static class XmlReservedNs
     {
@@ -518,6 +518,15 @@ namespace SmevTransformSpi
         // Closes the attribute opened by WriteStartAttribute.
         public override void WriteEndAttribute()
         {
+            try
+            {
+                AutoComplete(Token.EndAttribute);
+            }
+            catch
+            {
+                currentState = State.Error;
+                throw;
+            }
         }
 
         // Writes out a &lt;![CDATA[...]]&gt; block containing the specified text.

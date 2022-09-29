@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace SmevTransformSpi
+namespace GostCryptography.Xml.SmevTransformSpi
 {
     internal class Program
     {
@@ -14,7 +14,12 @@ namespace SmevTransformSpi
 
 
         static string testStr2 =
- @"<zerno:MessageData xmlns:zerno=""urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.0"" Id=""SIGNED_BY_CALLER""><zerno:MessageID>3eb6773e-fed4-11ec-b786-e2b1cb7e6353</zerno:MessageID><zerno:ReferenceMessageID>3eb6773e-fed4-11ec-b786-e2b1cb7e6353</zerno:ReferenceMessageID><zerno:MessagePrimaryContent><dicts:Request xmlns:dicts=""urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.0""><dicts:Dictionary>ОКПД2</dicts:Dictionary></dicts:Request></zerno:MessagePrimaryContent></zerno:MessageData>";
+ //@"<zerno:MessageData xmlns:zerno=""urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.0"" Id=""SIGNED_BY_CALLER""><zerno:MessageID>3eb6773e-fed4-11ec-b786-e2b1cb7e6353</zerno:MessageID><zerno:ReferenceMessageID>3eb6773e-fed4-11ec-b786-e2b1cb7e6353</zerno:ReferenceMessageID><zerno:MessagePrimaryContent><dicts:Request xmlns:dicts=""urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.0""><dicts:Dictionary>ОКПД2</dicts:Dictionary></dicts:Request></zerno:MessagePrimaryContent></zerno:MessageData>";
+ //@"<qwe xmlns=""http://t.e.s.t"">
+ // <myns:rty xmlns:myns=""http://y.e.s"" myns:nouse=""http://nouse"">yes!</myns:rty>
+ // <iop value=""yes, yes!"" />
+ //</qwe>";
+ @"<tns:PERNAMEZPRequest xmlns:markcont=""urn://x-artefacts-zags-pernamezp/markertypes/4.0.0"" xmlns:tns=""urn://x-artefacts-zags-pernamezp/4.0.0"" xmlns:fnst=""urn://x-artefacts-zags-pernamezp/types/4.0.0""  xmlns:frgu=""urn://x-artefacts-zags-pernamezp/frgutypes/4.0.0"" markcont:ТипЗаявл=""ФЛ"" ЗаявлДата=""2019-08-13"" tns:ИдСвед=""a"" markcont:Заявление=""15843"" ДатаСвед=""2018-08-13"" frgu:КодУслуги=""3482943"">";
 
         static void Main(string[] args)
         {

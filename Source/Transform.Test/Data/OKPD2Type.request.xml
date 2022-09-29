@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zerno:MessageData Id="SIGNED_BY_CALLER" xmlns:zerno="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.1" xmlns:dicts="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.1">
+  <zerno:MessageID>3eb6773e-fed4-11ec-b786-e2b1cb7e6353</zerno:MessageID>
+  <zerno:ReferenceMessageID>3eb6773e-fed4-11ec-b786-e2b1cb7e6353</zerno:ReferenceMessageID>
+  <zerno:MessagePrimaryContent>
+    <dicts:Request>
+      <dicts:Dictionary>OKPD2Type</dicts:Dictionary>
+    </dicts:Request>
+  </zerno:MessagePrimaryContent>
+</zerno:MessageData>

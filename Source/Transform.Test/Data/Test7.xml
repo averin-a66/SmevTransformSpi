@@ -1,0 +1,3 @@
+<nns:x xmlns:nns="http://a" attrB="value1" attrA="value2">
+ <y xmlns="http://a">yes!</y>
+</nns:x>
