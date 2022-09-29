@@ -45,6 +45,8 @@ namespace GostCryptography.Xml.SmevTransformSpi
 
     public class XmlSmevWriter : XmlWriter
     {
+
+        internal const string MethodNotUse = "Method not use";
         //
         // Private types
         //
@@ -257,29 +259,37 @@ namespace GostCryptography.Xml.SmevTransformSpi
             xmlEncoder = new XmlTextEncoder(textWriter);
             xmlEncoder.QuoteChar = this.quoteChar;
         }
+
+        void doThrowMethodNotUse()
+        {
+            doThrowMethodNotUse();
+        }
+
         //
         // XmlWriter implementation
         //
         // Writes out the XML declaration with the version "1.0".
         public override void WriteStartDocument()
         {
-//            StartDocument(-1);
+            doThrowMethodNotUse();
         }
 
         // Writes out the XML declaration with the version "1.0" and the standalone attribute.
         public override void WriteStartDocument(bool standalone)
         {
-//            StartDocument(standalone ? 1 : 0);
+            doThrowMethodNotUse();
         }
 
         // Closes any open elements or attributes and puts the writer back in the Start state.
         public override void WriteEndDocument()
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out the DOCTYPE declaration with the specified name and optional attributes.
         public override void WriteDocType(string name, string pubid, string sysid, string subset)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out the specified start tag and associates it with the given namespace and prefix.
@@ -532,31 +542,37 @@ namespace GostCryptography.Xml.SmevTransformSpi
         // Writes out a &lt;![CDATA[...]]&gt; block containing the specified text.
         public override void WriteCData(string text)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out a comment <!--...--> containing the specified text.
         public override void WriteComment(string text)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out a processing instruction with a space between the name and text as follows: <?name text?>
         public override void WriteProcessingInstruction(string name, string text)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out an entity reference as follows: "&"+name+";".
         public override void WriteEntityRef(string name)
         {
+            doThrowMethodNotUse();
         }
 
         // Forces the generation of a character entity for the specified Unicode character value.
         public override void WriteCharEntity(char ch)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out the given whitespace. 
         public override void WriteWhitespace(string ws)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out the specified text content.
@@ -580,33 +596,39 @@ namespace GostCryptography.Xml.SmevTransformSpi
         // Writes out the specified surrogate pair as a character entity.
         public override void WriteSurrogateCharEntity(char lowChar, char highChar)
         {
+            doThrowMethodNotUse();
         }
 
 
         // Writes out the specified text content.
         public override void WriteChars(Char[] buffer, int index, int count)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes raw markup from the specified character buffer.
         public override void WriteRaw(Char[] buffer, int index, int count)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes raw markup from the specified character string.
         public override void WriteRaw(String data)
         {
+            doThrowMethodNotUse();
         }
 
         // Encodes the specified binary bytes as base64 and writes out the resulting text.
         public override void WriteBase64(byte[] buffer, int index, int count)
         {
+            doThrowMethodNotUse();
         }
 
 
         // Encodes the specified binary bytes as binhex and writes out the resulting text.
         public override void WriteBinHex(byte[] buffer, int index, int count)
         {
+            doThrowMethodNotUse();
         }
 
         // Returns the state of the XmlWriter.
@@ -667,17 +689,19 @@ namespace GostCryptography.Xml.SmevTransformSpi
         // (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name
         public override void WriteName(string name)
         {
+            doThrowMethodNotUse();
         }
 
         // Writes out the specified namespace-qualified name by looking up the prefix that is in scope for the given namespace.
         public override void WriteQualifiedName(string localName, string ns)
         {
+            doThrowMethodNotUse();
         }
 
         // Returns the closest prefix defined in the current namespace scope for the specified namespace URI.
         public override string LookupPrefix(string ns)
         {
-            throw new ArgumentException("Not use in urn://smev-gov-ru/xmldsig/transform");
+            throw new Exception(MethodNotUse);
         }
 
         // Gets an XmlSpace representing the current xml:space scope. 
@@ -714,6 +738,7 @@ namespace GostCryptography.Xml.SmevTransformSpi
         // according to the XML specification (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
         public override void WriteNmToken(string name)
         {
+            doThrowMethodNotUse();
         }
 
         void AutoComplete(Token token)
