@@ -106,9 +106,6 @@ namespace SmevTransformSpi
             textWriter.Write(lowChar);
         }
 
-#if FEATURE_NETCORE
-        [System.Security.SecurityCritical]
-#endif
         internal void Write(char[] array, int offset, int count)
         {
             if (null == array)
@@ -253,9 +250,6 @@ namespace SmevTransformSpi
             textWriter.Write(';');
         }
 
-#if FEATURE_NETCORE
-        [System.Security.SecurityCritical]
-#endif
         internal void Write(string text)
         {
             if (text == null)
@@ -400,9 +394,6 @@ namespace SmevTransformSpi
             }
         }
 
-#if FEATURE_NETCORE
-        [System.Security.SecurityCritical]
-#endif
         internal void WriteRawWithSurrogateChecking(string text)
         {
             if (text == null)

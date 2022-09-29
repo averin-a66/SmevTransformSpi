@@ -11,38 +11,14 @@ using System.Reflection;
 using System.Security.Permissions;
 using System.Security;
 
+
+
 namespace SmevTransformSpi
 {
-
     internal static class XmlReservedNs
     {
         internal const string NsXml = "http://www.w3.org/XML/1998/namespace";
         internal const string NsXmlNs = "http://www.w3.org/2000/xmlns/";
-#if !SILVERLIGHT // These strings are not needed in Silverlight
-        internal const string NsDataType = "urn:schemas-microsoft-com:datatypes";
-        internal const string NsDataTypeAlias = "uuid:C2F41010-65B3-11D1-A29F-00AA00C14882";
-        internal const string NsDataTypeOld = "urn:uuid:C2F41010-65B3-11D1-A29F-00AA00C14882/";
-        internal const string NsMsxsl = "urn:schemas-microsoft-com:xslt";
-        internal const string NsXdr = "urn:schemas-microsoft-com:xml-data";
-        internal const string NsXslDebug = "urn:schemas-microsoft-com:xslt-debug";
-        internal const string NsXdrAlias = "uuid:BDC6E3F0-6DA3-11D1-A2A3-00AA00C14882";
-        internal const string NsWdXsl = "http://www.w3.org/TR/WD-xsl";
-        internal const string NsXs = "http://www.w3.org/2001/XMLSchema";
-        internal const string NsXsd = "http://www.w3.org/2001/XMLSchema-datatypes";
-        internal const string NsXsi = "http://www.w3.org/2001/XMLSchema-instance";
-        internal const string NsXslt = "http://www.w3.org/1999/XSL/Transform";
-        internal const string NsExsltCommon = "http://exslt.org/common";
-        internal const string NsExsltDates = "http://exslt.org/dates-and-times";
-        internal const string NsExsltMath = "http://exslt.org/math";
-        internal const string NsExsltRegExps = "http://exslt.org/regular-expressions";
-        internal const string NsExsltSets = "http://exslt.org/sets";
-        internal const string NsExsltStrings = "http://exslt.org/strings";
-        internal const string NsXQueryFunc = "http://www.w3.org/2003/11/xpath-functions";
-        internal const string NsXQueryDataType = "http://www.w3.org/2003/11/xpath-datatypes";
-        internal const string NsCollationBase = "http://collations.microsoft.com";
-        internal const string NsCollCodePoint = "http://www.w3.org/2004/10/xpath-functions/collation/codepoint";
-        internal const string NsXsltInternal = "http://schemas.microsoft.com/framework/2003/xml/xslt/internal";
-#endif
     };
 
     public enum XmlSpace
@@ -212,41 +188,7 @@ namespace SmevTransformSpi
         // Constants and constant tables
         //
         const int NamespaceStackInitialSize = 8;
-#if DEBUG
         const int MaxNamespacesWalkCount = 3;
-#else
-        const int MaxNamespacesWalkCount = 16;
-#endif
-
-        static string[] stateName = {
-            "Start",
-            "Prolog",
-            "PostDTD",
-            "Element",
-            "Attribute",
-            "Content",
-            "AttrOnly",
-            "Epilog",
-            "Error",
-            "Closed",
-        };
-
-        static string[] tokenName = {
-            "PI",
-            "Doctype",
-            "Comment",
-            "CData",
-            "StartElement",
-            "EndElement",
-            "LongEndElement",
-            "StartAttribute",
-            "EndAttribute",
-            "Content",
-            "Base64",
-            "RawData",
-            "Whitespace",
-            "Empty"
-        };
 
         static readonly State[] stateTableDefault = {
             //                          State.Start      State.Prolog     State.PostDTD    State.Element    State.Attribute  State.Content   State.AttrOnly   State.Epilog
@@ -318,173 +260,29 @@ namespace SmevTransformSpi
             xmlEncoder = new XmlTextEncoder(textWriter);
             xmlEncoder.QuoteChar = this.quoteChar;
         }
-
-        // Creates an instance of the XmlTextWriter class using the specified file.
-        [ResourceConsumption(ResourceScope.Machine)]
-        [ResourceExposure(ResourceScope.Machine)]
-        public XmlSmevWriter(String filename, Encoding encoding)
-        : this(new FileStream(filename, FileMode.Create,
-                              FileAccess.Write, FileShare.Read), encoding)
-        {
-        }
-
-        // Creates an instance of the XmlTextWriter class using the specified TextWriter.
-        public XmlSmevWriter(TextWriter w) : this()
-        {
-            textWriter = w;
-
-            encoding = w.Encoding;
-            xmlEncoder = new XmlTextEncoder(w);
-            xmlEncoder.QuoteChar = this.quoteChar;
-        }
-
-        //
-        // XmlTextWriter properties
-        //
-        // Gets the XmlTextWriter base stream.
-        public Stream BaseStream
-        {
-            get
-            {
-                StreamWriter streamWriter = textWriter as StreamWriter;
-                return (streamWriter == null ? null : streamWriter.BaseStream);
-            }
-        }
-
-        // Gets or sets a value indicating whether to do namespace support.
-        public bool Namespaces
-        {
-            get { return this.namespaces; }
-            set
-            {
-                if (this.currentState != State.Start)
-                    throw new InvalidOperationException("Xml_NotInWriteState");
-
-                this.namespaces = value;
-            }
-        }
-
-        // Indicates how the output is formatted.
-        public Formatting Formatting
-        {
-            get { return this.formatting; }
-            set { this.formatting = value; this.indented = value == Formatting.Indented; }
-        }
-
-        // Gets or sets how many IndentChars to write for each level in the hierarchy when Formatting is set to "Indented".
-        public int Indentation
-        {
-            get { return this.indentation; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentException("Xml_InvalidIndentation");
-                this.indentation = value;
-            }
-        }
-
-        // Gets or sets which character to use for indenting when Formatting is set to "Indented".
-        public char IndentChar
-        {
-            get { return this.indentChar; }
-            set { this.indentChar = value; }
-        }
-
-        // Gets or sets which character to use to quote attribute values.
-        public char QuoteChar
-        {
-            get { return this.quoteChar; }
-            set
-            {
-                if (value != '"' && value != '\'')
-                {
-                    throw new ArgumentException("Xml_InvalidQuote");
-                }
-                this.quoteChar = value;
-                this.xmlEncoder.QuoteChar = value;
-            }
-        }
-
         //
         // XmlWriter implementation
         //
         // Writes out the XML declaration with the version "1.0".
         public override void WriteStartDocument()
         {
-            StartDocument(-1);
+//            StartDocument(-1);
         }
 
         // Writes out the XML declaration with the version "1.0" and the standalone attribute.
         public override void WriteStartDocument(bool standalone)
         {
-            StartDocument(standalone ? 1 : 0);
+//            StartDocument(standalone ? 1 : 0);
         }
 
         // Closes any open elements or attributes and puts the writer back in the Start state.
         public override void WriteEndDocument()
         {
-            try
-            {
-                AutoCompleteAll();
-                if (this.currentState != State.Epilog)
-                {
-                    if (this.currentState == State.Closed)
-                    {
-                        throw new ArgumentException("Xml_ClosedOrError");
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Xml_NoRoot");
-                    }
-                }
-                this.stateTable = stateTableDefault;
-                this.currentState = State.Start;
-                this.lastToken = Token.Empty;
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out the DOCTYPE declaration with the specified name and optional attributes.
         public override void WriteDocType(string name, string pubid, string sysid, string subset)
         {
-            try
-            {
-                ValidateName(name, false);
-
-                AutoComplete(Token.Doctype);
-                textWriter.Write("<!DOCTYPE ");
-                textWriter.Write(name);
-                if (pubid != null)
-                {
-                    textWriter.Write(" PUBLIC " + quoteChar);
-                    textWriter.Write(pubid);
-                    textWriter.Write(quoteChar + " " + quoteChar);
-                    textWriter.Write(sysid);
-                    textWriter.Write(quoteChar);
-                }
-                else if (sysid != null)
-                {
-                    textWriter.Write(" SYSTEM " + quoteChar);
-                    textWriter.Write(sysid);
-                    textWriter.Write(quoteChar);
-                }
-                if (subset != null)
-                {
-                    textWriter.Write("[");
-                    textWriter.Write(subset);
-                    textWriter.Write("]");
-                }
-                textWriter.Write('>');
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out the specified start tag and associates it with the given namespace and prefix.
@@ -723,142 +521,36 @@ namespace SmevTransformSpi
         // Closes the attribute opened by WriteStartAttribute.
         public override void WriteEndAttribute()
         {
-            try
-            {
-                AutoComplete(Token.EndAttribute);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out a &lt;![CDATA[...]]&gt; block containing the specified text.
         public override void WriteCData(string text)
         {
-            try
-            {
-                AutoComplete(Token.CData);
-                if (null != text && text.IndexOf("]]>", StringComparison.Ordinal) >= 0)
-                {
-                    throw new ArgumentException("Xml_InvalidCDataChars");
-                }
-                textWriter.Write("<![CDATA[");
-
-                if (null != text)
-                {
-                    xmlEncoder.WriteRawWithSurrogateChecking(text);
-                }
-                textWriter.Write("]]>");
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out a comment <!--...--> containing the specified text.
         public override void WriteComment(string text)
         {
-            try
-            {
-                if (null != text && (text.IndexOf("--", StringComparison.Ordinal) >= 0 || (text.Length != 0 && text[text.Length - 1] == '-')))
-                {
-                    throw new ArgumentException("Xml_InvalidCommentChars");
-                }
-                AutoComplete(Token.Comment);
-                textWriter.Write("<!--");
-                if (null != text)
-                {
-                    xmlEncoder.WriteRawWithSurrogateChecking(text);
-                }
-                textWriter.Write("-->");
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out a processing instruction with a space between the name and text as follows: <?name text?>
         public override void WriteProcessingInstruction(string name, string text)
         {
-            try
-            {
-                if (null != text && text.IndexOf("?>", StringComparison.Ordinal) >= 0)
-                {
-                    throw new ArgumentException("Xml_InvalidPiChars");
-                }
-                if (0 == String.Compare(name, "xml", StringComparison.OrdinalIgnoreCase) && this.stateTable == stateTableDocument)
-                {
-                    throw new ArgumentException("Xml_DupXmlDecl");
-                }
-                AutoComplete(Token.PI);
-                InternalWriteProcessingInstruction(name, text);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out an entity reference as follows: "&"+name+";".
         public override void WriteEntityRef(string name)
         {
-            try
-            {
-                ValidateName(name, false);
-                AutoComplete(Token.Content);
-                xmlEncoder.WriteEntityRef(name);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Forces the generation of a character entity for the specified Unicode character value.
         public override void WriteCharEntity(char ch)
         {
-            try
-            {
-                AutoComplete(Token.Content);
-                xmlEncoder.WriteCharEntity(ch);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out the given whitespace. 
         public override void WriteWhitespace(string ws)
         {
-            try
-            {
-                if (null == ws)
-                {
-                    ws = String.Empty;
-                }
-
-                if (!xmlCharType.IsOnlyWhitespace(ws))
-                {
-                    throw new ArgumentException("Xml_NonWhitespace");
-                }
-                AutoComplete(Token.Whitespace);
-                xmlEncoder.Write(ws);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out the specified text content.
@@ -882,105 +574,33 @@ namespace SmevTransformSpi
         // Writes out the specified surrogate pair as a character entity.
         public override void WriteSurrogateCharEntity(char lowChar, char highChar)
         {
-            try
-            {
-                AutoComplete(Token.Content);
-                xmlEncoder.WriteSurrogateCharEntity(lowChar, highChar);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
 
         // Writes out the specified text content.
         public override void WriteChars(Char[] buffer, int index, int count)
         {
-            try
-            {
-                AutoComplete(Token.Content);
-                xmlEncoder.Write(buffer, index, count);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes raw markup from the specified character buffer.
         public override void WriteRaw(Char[] buffer, int index, int count)
         {
-            try
-            {
-                AutoComplete(Token.RawData);
-                xmlEncoder.WriteRaw(buffer, index, count);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes raw markup from the specified character string.
         public override void WriteRaw(String data)
         {
-            try
-            {
-                AutoComplete(Token.RawData);
-                xmlEncoder.WriteRawWithSurrogateChecking(data);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Encodes the specified binary bytes as base64 and writes out the resulting text.
         public override void WriteBase64(byte[] buffer, int index, int count)
         {
-            /*try
-            {
-                if (!this.flush)
-                {
-                    AutoComplete(Token.Base64);
-                }
-
-                this.flush = true;
-                // No need for us to explicitly validate the args. The StreamWriter will do
-                // it for us.
-                if (null == this.base64Encoder)
-                {
-                    this.base64Encoder = new XmlTextWriterBase64Encoder(xmlEncoder);
-                }
-                // Encode will call WriteRaw to write out the encoded characters
-                this.base64Encoder.Encode(buffer, index, count);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }*/
         }
 
 
         // Encodes the specified binary bytes as binhex and writes out the resulting text.
         public override void WriteBinHex(byte[] buffer, int index, int count)
         {
-            /*try
-            {
-                AutoComplete(Token.Content);
-                BinHexEncoder.Encode(buffer, index, count, this);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }*/
         }
 
         // Returns the state of the XmlWriter.
@@ -1041,71 +661,17 @@ namespace SmevTransformSpi
         // (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name
         public override void WriteName(string name)
         {
-            try
-            {
-                AutoComplete(Token.Content);
-                InternalWriteName(name, false);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Writes out the specified namespace-qualified name by looking up the prefix that is in scope for the given namespace.
         public override void WriteQualifiedName(string localName, string ns)
         {
-            try
-            {
-                AutoComplete(Token.Content);
-                if (this.namespaces)
-                {
-                    if (ns != null && ns.Length != 0 && ns != stack[top].defaultNs)
-                    {
-                        string prefix = FindPrefix(ns);
-                        if (prefix == null)
-                        {
-                            if (this.currentState != State.Attribute)
-                            {
-                                throw new ArgumentException("Xml_UndefNamespace");
-                            }
-                            prefix = GeneratePrefix(); // need a prefix if
-                            PushNamespace(prefix, ns, false);
-                        }
-                        if (prefix.Length != 0)
-                        {
-                            InternalWriteName(prefix, true);
-                            textWriter.Write(':');
-                        }
-                    }
-                }
-                else if (ns != null && ns.Length != 0)
-                {
-                    throw new ArgumentException("Xml_NoNamespaces");
-                }
-                InternalWriteName(localName, true);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         // Returns the closest prefix defined in the current namespace scope for the specified namespace URI.
         public override string LookupPrefix(string ns)
         {
-            if (ns == null || ns.Length == 0)
-            {
-                throw new ArgumentException("Xml_EmptyName");
-            }
-            string s = FindPrefix(ns);
-            if (s == null && ns == stack[top].defaultNs)
-            {
-                s = string.Empty;
-            }
-            return s;
+            throw new ArgumentException("Not use in urn://smev-gov-ru/xmldsig/transform");
         }
 
         // Gets an XmlSpace representing the current xml:space scope. 
@@ -1142,64 +708,6 @@ namespace SmevTransformSpi
         // according to the XML specification (http://www.w3.org/TR/1998/REC-xml-19980210#NT-Name).
         public override void WriteNmToken(string name)
         {
-            try
-            {
-                AutoComplete(Token.Content);
-
-                if (name == null || name.Length == 0)
-                {
-                    throw new ArgumentException("Xml_EmptyName");
-                }
-                if (!ValidateNames.IsNmtokenNoNamespaces(name))
-                {
-                    throw new ArgumentException("Xml_InvalidNameChars");
-                }
-                textWriter.Write(name);
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
-        }
-
-        //
-        // Private implementation methods
-        //
-        void StartDocument(int standalone)
-        {
-            try
-            {
-                if (this.currentState != State.Start)
-                {
-                    throw new InvalidOperationException("Xml_NotTheFirst");
-                }
-                this.stateTable = stateTableDocument;
-                this.currentState = State.Prolog;
-
-                StringBuilder bufBld = new StringBuilder(128);
-                bufBld.Append("version=" + quoteChar + "1.0" + quoteChar);
-                if (this.encoding != null)
-                {
-                    bufBld.Append(" encoding=");
-                    bufBld.Append(quoteChar);
-                    bufBld.Append(this.encoding.WebName);
-                    bufBld.Append(quoteChar);
-                }
-                if (standalone >= 0)
-                {
-                    bufBld.Append(" standalone=");
-                    bufBld.Append(quoteChar);
-                    bufBld.Append(standalone == 0 ? "no" : "yes");
-                    bufBld.Append(quoteChar);
-                }
-                InternalWriteProcessingInstruction("xml", bufBld.ToString());
-            }
-            catch
-            {
-                currentState = State.Error;
-                throw;
-            }
         }
 
         void AutoComplete(Token token)
@@ -1327,6 +835,7 @@ namespace SmevTransformSpi
 
         void AutoCompleteAll()
         {
+
             if (this.flush)
             {
                 FlushEncoders();
@@ -1647,16 +1156,6 @@ namespace SmevTransformSpi
             return null;
         }
 
-        // There are three kind of strings we write out - Name, LocalName and Prefix.
-        // Both LocalName and Prefix can be represented with NCName == false and Name
-        // can be represented as NCName == true
-
-        void InternalWriteName(string name, bool isNCName)
-        {
-            ValidateName(name, isNCName);
-            textWriter.Write(name);
-        }
-
         // This method is used for validation of the DOCTYPE, processing instruction and entity names plus names 
         // written out by the user via WriteName and WriteQualifiedName.
         // Unfortunatelly the names of elements and attributes are not validated by the XmlTextWriter.
@@ -1750,7 +1249,6 @@ namespace SmevTransformSpi
             }
         }
 
-
         void VerifyPrefixXml(string prefix, string ns)
         {
 
@@ -1785,11 +1283,6 @@ namespace SmevTransformSpi
 
         void FlushEncoders()
         {
-            /*if (null != this.base64Encoder)
-            {
-                // The Flush will call WriteRaw to write out the rest of the encoded characters
-                this.base64Encoder.Flush();
-            }*/
             this.flush = false;
         }
 
@@ -1817,12 +1310,6 @@ namespace SmevTransformSpi
         {
             this.hashCodeRandomizer = Environment.TickCount;
         }
-
-#if false // This is here only for debugging of hashing issues
-        public SecureStringHasher( int hashCodeRandomizer ) {
-            this.hashCodeRandomizer = hashCodeRandomizer;
-        }
-#endif
 
         public bool Equals(String x, String y)
         {
@@ -1856,9 +1343,6 @@ namespace SmevTransformSpi
         }
 
         [SecuritySafeCritical]
-#if !SILVERLIGHT
-        //[ReflectionPermission(SecurityAction.Assert, Unrestricted = true)]
-#endif
         private static HashCodeOfStringDelegate GetHashCodeDelegate()
         {
             // If we find the Marvin hash method, we use that
