@@ -1,0 +1,10 @@
+<ns:RequestCreateExtinction SDIZNumber="string" amount="100" fullExtinction="false" xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0" xmlns:ns1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0" xmlns:ns2="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0">
+  <!--Zero or more repetitions:-->
+  <ns1:TransportInfo numberTransport="string" numberСontainer="string">
+    <ns2:TransportCode>string</ns2:TransportCode>
+  </ns1:TransportInfo>
+  <!--Optional:-->
+  <ns1:WeightDiscperancyCause>string</ns1:WeightDiscperancyCause>
+  <!--Optional:-->
+  <ns1:CauseComment>string</ns1:CauseComment>
+</ns:RequestCreateExtinction>

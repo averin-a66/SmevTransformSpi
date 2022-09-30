@@ -121,6 +121,45 @@
   <data name="OKPD2TypeRequest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Data\OKPD2Type.request.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="RequestCreateExtinction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateExtinction.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RequestCreateExtinctionRefusal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateExtinctionRefusal.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestCreateLot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateLot.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestCreateLotDebit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateLotDebit.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestCreateLotOnElevator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateLotOnElevator.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestCreateSDIZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateSDIZ.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RequestCreateSDIZElevator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCreateSDIZElevator.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RequestGetListExtinction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestGetListExtinction.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestGetListExtinctionRefusal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestGetListExtinctionRefusal.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestGetListLot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestGetListLot.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestGetListLotDebit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestGetListLotDebit.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestGetListSDIZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestGetListSDIZ.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestGetListSDIZElevator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestGetListSDIZElevator.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="Test2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Data\Test2.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>

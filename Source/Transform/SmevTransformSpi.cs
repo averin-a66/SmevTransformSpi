@@ -173,14 +173,14 @@ namespace GostCryptography.Xml.SmevTransformSpi
                 // Оба атрибута - unqualified.
                 if (empty(xNS) && empty(yNS))
                 {
-                    return xLocal.CompareTo(yLocal);
+                    return string.Compare(xLocal, yLocal, StringComparison.Ordinal);
                 }
 
                 // Оба атрибута - qualified.
                 if (!empty(xNS) && !empty(yNS))
                 {
                     // Сначала сравниваем namespaces.
-                    int nsComparisonResult = xNS.CompareTo(yNS);
+                    int nsComparisonResult = string.Compare(xNS, yNS, StringComparison.Ordinal);
                     if (nsComparisonResult != 0)
                     {
                         return nsComparisonResult;
@@ -188,7 +188,7 @@ namespace GostCryptography.Xml.SmevTransformSpi
                     else
                     {
                         // Если равны - local names.
-                        return xLocal.CompareTo(yLocal);
+                        return string.Compare(xLocal, yLocal, StringComparison.Ordinal);
                     }
                 }
 

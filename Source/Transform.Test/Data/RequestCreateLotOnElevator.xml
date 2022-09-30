@@ -1,0 +1,133 @@
+<ns:RequestCreateLotOnElevator xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0" xmlns:ns1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.0" xmlns:ns2="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0" xmlns:ns3="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0">
+  <!--You have a CHOICE of the next 5 items at this level-->
+  <ns1:LotFromAnother>
+    <!--1 or more repetitions:-->
+    <ns1:ParentLot lotNumber="string" amount="100"/>
+  </ns1:LotFromAnother>
+  <ns1:LotFromResidues amount="100"/>
+  <ns1:LotFromField amount="100" reserchNumber="string"/>
+  <ns1:LotFromImport amount="100">
+    <ns1:CountryOrigin>
+      <ns2:alhpa-3>str</ns2:alhpa-3>
+      <!--Optional:-->
+      <ns2:ShortName>string</ns2:ShortName>
+    </ns1:CountryOrigin>
+  </ns1:LotFromImport>
+  <ns1:LotFromPaperSDIZ>
+    <ns1:ParentLot lotNumber="string" amount="100"/>
+  </ns1:LotFromPaperSDIZ>
+  <ns1:Crop>
+    <ns3:OKPD2>string</ns3:OKPD2>
+    <!--Optional:-->
+    <ns3:TNVED>string</ns3:TNVED>
+  </ns1:Crop>
+  <ns1:Target>string</ns1:Target>
+  <ns1:Purpose>string</ns1:Purpose>
+  <ns1:HarvestYear>100</ns1:HarvestYear>
+  <ns1:StoragePlace>
+    <ns2:PostalCode>string</ns2:PostalCode>
+    <ns2:Address>string</ns2:Address>
+  </ns1:StoragePlace>
+  <ns1:ListValueQualityIndicator>
+    <!--Zero or more repetitions:-->
+    <ns3:Value qualityIndicatorCode="string">string</ns3:Value>
+  </ns1:ListValueQualityIndicator>
+  <!--Zero or more repetitions:-->
+  <ns1:DocumentOnLot number="string" date="2008-09-29">
+    <ns1:KindDoc>string</ns1:KindDoc>
+  </ns1:DocumentOnLot>
+  <ns1:Owner>
+    <!--You have a CHOICE of the next 4 items at this level-->
+    <!--Optional:-->
+    <ns2:LegalEntity>
+      <ns2:Name>string</ns2:Name>
+      <!--Optional:-->
+      <ns2:ShortName>string</ns2:ShortName>
+      <ns2:INN>stringstri</ns2:INN>
+      <ns2:OGRN>stringstrings</ns2:OGRN>
+      <ns2:KPP>stringstr</ns2:KPP>
+      <!--Optional:-->
+      <ns2:OPF>strin</ns2:OPF>
+      <!--Optional:-->
+      <ns2:Address>
+        <ns2:PostalCode>string</ns2:PostalCode>
+        <ns2:Address>string</ns2:Address>
+      </ns2:Address>
+      <!--Optional:-->
+      <ns2:PhoneNumber>string</ns2:PhoneNumber>
+      <!--Optional:-->
+      <ns2:EmailAddress>string</ns2:EmailAddress>
+    </ns2:LegalEntity>
+    <!--Optional:-->
+    <ns2:SoleProprietor>
+      <ns2:FamilyName>string</ns2:FamilyName>
+      <ns2:FirstName>string</ns2:FirstName>
+      <!--Optional:-->
+      <ns2:Patronymic>string</ns2:Patronymic>
+      <ns2:INN>stringstring</ns2:INN>
+      <ns2:OGRN>stringstringstr</ns2:OGRN>
+      <!--Optional:-->
+      <ns2:Address>
+        <ns2:PostalCode>string</ns2:PostalCode>
+        <ns2:Address>string</ns2:Address>
+      </ns2:Address>
+      <ns2:SNILS>stringstrin</ns2:SNILS>
+      <!--Optional:-->
+      <ns2:IdentityDocument>
+        <!--You have a CHOICE of the next 3 items at this level-->
+        <ns2:PassportRF>
+          <ns2:Series>stri</ns2:Series>
+          <ns2:Number>string</ns2:Number>
+          <ns2:IssueDate>2014-09-19</ns2:IssueDate>
+          <ns2:Issuer>string</ns2:Issuer>
+        </ns2:PassportRF>
+        <ns2:MilitaryPassport>
+          <ns2:Series>st</ns2:Series>
+          <ns2:Number>strings</ns2:Number>
+          <ns2:IssueDate>2006-08-19+04:00</ns2:IssueDate>
+          <ns2:Issuer>string</ns2:Issuer>
+        </ns2:MilitaryPassport>
+        <ns2:ForeignPassport>
+          <!--Optional:-->
+          <ns2:Series>string</ns2:Series>
+          <ns2:Number>string</ns2:Number>
+          <ns2:IssueDate>2009-05-16</ns2:IssueDate>
+          <ns2:Issuer>string</ns2:Issuer>
+        </ns2:ForeignPassport>
+      </ns2:IdentityDocument>
+      <!--Optional:-->
+      <ns2:PhoneNumber>string</ns2:PhoneNumber>
+      <!--Optional:-->
+      <ns2:EmailAddress>string</ns2:EmailAddress>
+    </ns2:SoleProprietor>
+    <!--Optional:-->
+    <ns2:ForeignLegalEntity>
+      <ns2:Name>string</ns2:Name>
+      <ns2:INN>stringstri</ns2:INN>
+      <ns2:KPP>stringstr</ns2:KPP>
+      <ns2:RAFP>stringstrin</ns2:RAFP>
+      <ns2:Country>
+        <ns2:alhpa-3>str</ns2:alhpa-3>
+        <!--Optional:-->
+        <ns2:ShortName>string</ns2:ShortName>
+      </ns2:Country>
+      <!--Optional:-->
+      <ns2:Address>
+        <ns2:PostalCode>string</ns2:PostalCode>
+        <ns2:Address>string</ns2:Address>
+      </ns2:Address>
+    </ns2:ForeignLegalEntity>
+    <!--Optional:-->
+    <ns2:ForeignEntity>
+      <ns2:Name>string</ns2:Name>
+      <ns2:Country>
+        <ns2:alhpa-3>str</ns2:alhpa-3>
+        <!--Optional:-->
+        <ns2:ShortName>string</ns2:ShortName>
+      </ns2:Country>
+      <ns2:Address>
+        <ns2:Address>string</ns2:Address>
+      </ns2:Address>
+    </ns2:ForeignEntity>
+  </ns1:Owner>
+</ns:RequestCreateLotOnElevator>

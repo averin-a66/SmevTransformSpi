@@ -77,6 +77,177 @@ namespace Transform.Test.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateExtinction SDIZNumber=&quot;string&quot; amount=&quot;100&quot; fullExtinction=&quot;false&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0&quot; xmlns:ns2=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0&quot;&gt;
+        ///  &lt;!--Zero or more repetitions:--&gt;
+        ///  &lt;ns1:TransportInfo numberTransport=&quot;string&quot; numberСontainer=&quot;string&quot;&gt;
+        ///    &lt;ns2:TransportCode&gt;string&lt;/ns2:TransportCode&gt;
+        ///  &lt;/ns1:TransportInfo&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns1:WeightDisc [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestCreateExtinction {
+            get {
+                return ResourceManager.GetString("RequestCreateExtinction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateExtinctionRefusal SDIZNumber=&quot;string&quot; amount=&quot;100&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0&quot;&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns1:LotReturnReasonCode&gt;string&lt;/ns1:LotReturnReasonCode&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns1:CauseComment&gt;string&lt;/ns1:CauseComment&gt;
+        ///&lt;/ns:RequestCreateExtinctionRefusal&gt;.
+        /// </summary>
+        internal static string RequestCreateExtinctionRefusal {
+            get {
+                return ResourceManager.GetString("RequestCreateExtinctionRefusal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateLot xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.0&quot; xmlns:ns2=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0&quot; xmlns:ns3=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0&quot;&gt;
+        ///  &lt;!--You have a CHOICE of the next 5 items at this level--&gt;
+        ///  &lt;ns1:LotFromAnother&gt;
+        ///    &lt;!--1 or more repetitions:--&gt;
+        ///    &lt;ns1:ParentLot lotNumber=&quot;string&quot; amount=&quot;100&quot;/&gt;
+        ///  &lt;/ns1:LotFromAnother&gt;
+        ///  &lt;ns1:L [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestCreateLot {
+            get {
+                return ResourceManager.GetString("RequestCreateLot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateLotDebit amount=&quot;100&quot; lotNumber=&quot;string&quot; comment=&quot;string&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.0&quot;&gt;
+        ///  &lt;ns1:Reason&gt;string&lt;/ns1:Reason&gt;
+        ///&lt;/ns:RequestCreateLotDebit&gt;.
+        /// </summary>
+        internal static string RequestCreateLotDebit {
+            get {
+                return ResourceManager.GetString("RequestCreateLotDebit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateLotOnElevator xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.0&quot; xmlns:ns2=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0&quot; xmlns:ns3=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0&quot;&gt;
+        ///  &lt;!--You have a CHOICE of the next 5 items at this level--&gt;
+        ///  &lt;ns1:LotFromAnother&gt;
+        ///    &lt;!--1 or more repetitions:--&gt;
+        ///    &lt;ns1:ParentLot lotNumber=&quot;string&quot; amount=&quot;100&quot;/&gt;
+        ///  &lt;/ns1:LotFromAnother&gt; [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestCreateLotOnElevator {
+            get {
+                return ResourceManager.GetString("RequestCreateLotOnElevator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateSDIZ lotNumber=&quot;string&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0&quot; xmlns:ns2=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0&quot; xmlns:ns3=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0&quot;&gt;
+        ///  &lt;!--You have a CHOICE of the next 3 items at this level--&gt;
+        ///  &lt;ns1:OperationInRF&gt;
+        ///    &lt;!--1 to 4 repetitions:--&gt;
+        ///    &lt;ns1:OperationSDIZ&gt;SHIPPING&lt;/ns1:OperationSDIZ&gt;
+        ///    &lt;!--Optional:- [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestCreateSDIZ {
+            get {
+                return ResourceManager.GetString("RequestCreateSDIZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateSDIZElevator lotNumber=&quot;string&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0&quot; xmlns:ns2=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0&quot;&gt;
+        ///  &lt;ns1:OperationSDIZElevator&gt;
+        ///    &lt;!--You have a CHOICE of the next 2 items at this level--&gt;
+        ///    &lt;ns1:AcceptanceElevator dateDogovor=&quot;2008-09-29&quot; NumberDogovor=&quot;string&quot; storageArea=&quot;1.5E2&quot; storagePeriod=&quot;2014-09-19&quot; storageСonditions=&quot;string&quot;&gt;
+        ///   [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestCreateSDIZElevator {
+            get {
+                return ResourceManager.GetString("RequestCreateSDIZElevator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestGetListExtinction sdizNumber=&quot;string&quot; dateFrom=&quot;2008-09-29&quot; dateTo=&quot;2014-09-19&quot; status=&quot;SUBSCRIBED&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot;/&gt;.
+        /// </summary>
+        internal static string RequestGetListExtinction {
+            get {
+                return ResourceManager.GetString("RequestGetListExtinction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestGetListExtinctionRefusal sdizNumber=&quot;string&quot; dateFrom=&quot;2008-09-29&quot; dateTo=&quot;2014-09-19&quot; status=&quot;SUBSCRIBED&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot;/&gt;.
+        /// </summary>
+        internal static string RequestGetListExtinctionRefusal {
+            get {
+                return ResourceManager.GetString("RequestGetListExtinctionRefusal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestGetListLot dateFrom=&quot;2008-09-29&quot; dateTo=&quot;2014-09-19&quot; lotNumber=&quot;string&quot; lotID=&quot;100&quot; status=&quot;CANCELED&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0&quot;&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns:OKPD2&gt;string&lt;/ns:OKPD2&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns:Owner&gt;
+        ///    &lt;!--You have a CHOICE of the next 4 items at this level--&gt;
+        ///    &lt;!--Optional:--&gt;
+        ///    &lt;ns1:LegalEntity&gt;
+        ///      &lt;ns1:Name&gt;string&lt;/ns1:Name&gt;
+        ///      &lt;!--Optional:--&gt;        /// [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestGetListLot {
+            get {
+                return ResourceManager.GetString("RequestGetListLot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestGetListLotDebit lotNumber=&quot;string&quot; dateFrom=&quot;2008-09-29&quot; dateTo=&quot;2014-09-19&quot; status=&quot;SUBSCRIBED&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0&quot;/&gt;.
+        /// </summary>
+        internal static string RequestGetListLotDebit {
+            get {
+                return ResourceManager.GetString("RequestGetListLotDebit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestGetListSDIZ dateFrom=&quot;2008-09-29&quot; dateTo=&quot;2014-09-19&quot; lotNumber=&quot;string&quot; sdizNumber=&quot;string&quot; sdizID=&quot;100&quot; status=&quot;CANCELED&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0&quot;&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns:OKPD2&gt;string&lt;/ns:OKPD2&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns:Owner&gt;
+        ///    &lt;!--You have a CHOICE of the next 4 items at this level--&gt;
+        ///    &lt;!--Optional:--&gt;
+        ///    &lt;ns1:LegalEntity&gt;
+        ///      &lt;ns1:Name&gt;string&lt;/ns1:Name&gt;
+        ///  [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string RequestGetListSDIZ {
+            get {
+                return ResourceManager.GetString("RequestGetListSDIZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestGetListSDIZElevator dateFrom=&quot;2008-09-29&quot; dateTo=&quot;2014-09-19&quot; lotNumber=&quot;string&quot; sdizNumber=&quot;string&quot; sdizID=&quot;100&quot; status=&quot;CANCELED&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot;&gt;
+        ///  &lt;!--Optional:--&gt;
+        ///  &lt;ns:OKPD2&gt;string&lt;/ns:OKPD2&gt;
+        ///&lt;/ns:RequestGetListSDIZElevator&gt;.
+        /// </summary>
+        internal static string RequestGetListSDIZElevator {
+            get {
+                return ResourceManager.GetString("RequestGetListSDIZElevator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;style.css&quot;?&gt;
         ///&lt;qwe xmlns=&quot;http://t.e.s.t&quot;&gt;
@@ -150,7 +321,7 @@ namespace Transform.Test.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на &lt;tns:PERNAMEZPRequest xmlns:markcont=&quot;urn://x-artefacts-zags-pernamezp/markertypes/4.0.0&quot; xmlns:tns=&quot;urn://x-artefacts-zags-pernamezp/4.0.0&quot; xmlns:fnst=&quot;urn://x-artefacts-zags-pernamezp/types/4.0.0&quot;  xmlns:frgu=&quot;urn://x-artefacts-zags-pernamezp/frgutypes/4.0.0&quot; markcont:ТипЗаявл=&quot;ФЛ&quot; ЗаявлДата=&quot;2019-08-13&quot; tns:ИдСвед=&quot;a&quot; markcont:Заявление=&quot;15843&quot; ДатаСвед=&quot;2018-08-13&quot; frgu:КодУслуги=&quot;3482943&quot;&gt;.
+        ///   Ищет локализованную строку, похожую на &lt;tns:PERNAMEZPRequest xmlns:markcont=&quot;urn://x-artefacts-zags-pernamezp/markertypes/4.0.0&quot; xmlns:tns=&quot;urn://x-artefacts-zags-pernamezp/4.0.0&quot; xmlns:fnst=&quot;urn://x-artefacts-zags-pernamezp/types/4.0.0&quot;  xmlns:frgu=&quot;urn://x-artefacts-zags-pernamezp/frgutypes/4.0.0&quot; markcont:РўРёРїР—Р°СЏРІР»=&quot;Р¤Р›&quot; Р—Р°СЏРІР»Р”Р°С‚Р°=&quot;2019-08-13&quot; tns:РРґРЎРІРµРґ=&quot;a&quot; markcont:Р—Р°СЏРІР»РµРЅРёРµ=&quot;15843&quot; Р”Р°С‚Р°РЎРІРµРґ=&quot;2018-08-13&quot; frgu:РљРѕРґРЈСЃР»СѓРіРё=&quot;3482943&quot;/&gt;.
         /// </summary>
         internal static string Test8 {
             get {

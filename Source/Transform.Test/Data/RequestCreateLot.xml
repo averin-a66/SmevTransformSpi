@@ -1,0 +1,39 @@
+<ns:RequestCreateLot xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0" xmlns:ns1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.0" xmlns:ns2="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0" xmlns:ns3="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0">
+  <!--You have a CHOICE of the next 5 items at this level-->
+  <ns1:LotFromAnother>
+    <!--1 or more repetitions:-->
+    <ns1:ParentLot lotNumber="string" amount="100"/>
+  </ns1:LotFromAnother>
+  <ns1:LotFromResidues amount="100"/>
+  <ns1:LotFromField amount="100" reserchNumber="string"/>
+  <ns1:LotFromImport amount="100">
+    <ns1:CountryOrigin>
+      <ns2:alhpa-3>str</ns2:alhpa-3>
+      <!--Optional:-->
+      <ns2:ShortName>string</ns2:ShortName>
+    </ns1:CountryOrigin>
+  </ns1:LotFromImport>
+  <ns1:LotFromPaperSDIZ>
+    <ns1:ParentLot lotNumber="string" amount="100"/>
+  </ns1:LotFromPaperSDIZ>
+  <ns1:Crop>
+    <ns3:OKPD2>string</ns3:OKPD2>
+    <!--Optional:-->
+    <ns3:TNVED>string</ns3:TNVED>
+  </ns1:Crop>
+  <ns1:Target>string</ns1:Target>
+  <ns1:Purpose>string</ns1:Purpose>
+  <ns1:HarvestYear>100</ns1:HarvestYear>
+  <ns1:StoragePlace>
+    <ns2:PostalCode>string</ns2:PostalCode>
+    <ns2:Address>string</ns2:Address>
+  </ns1:StoragePlace>
+  <ns1:ListValueQualityIndicator>
+    <!--Zero or more repetitions:-->
+    <ns3:Value qualityIndicatorCode="string">string</ns3:Value>
+  </ns1:ListValueQualityIndicator>
+  <!--Zero or more repetitions:-->
+  <ns1:DocumentOnLot number="string" date="2008-09-29">
+    <ns1:KindDoc>string</ns1:KindDoc>
+  </ns1:DocumentOnLot>
+</ns:RequestCreateLot>

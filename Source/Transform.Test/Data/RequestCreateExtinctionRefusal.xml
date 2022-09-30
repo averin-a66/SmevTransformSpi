@@ -1,0 +1,6 @@
+<ns:RequestCreateExtinctionRefusal SDIZNumber="string" amount="100" xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0" xmlns:ns1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0">
+  <!--Optional:-->
+  <ns1:LotReturnReasonCode>string</ns1:LotReturnReasonCode>
+  <!--Optional:-->
+  <ns1:CauseComment>string</ns1:CauseComment>
+</ns:RequestCreateExtinctionRefusal>

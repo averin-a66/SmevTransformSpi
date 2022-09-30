@@ -5,19 +5,13 @@ using System.Text;
 using System.Xml;
 using GostCryptography.Xml.SmevTransformSpi;
 
-namespace Transform.Test
+namespace Transform.Test.Tests.TestFromMetodichka
 {
     public class SmevTransformSpiTests
     {
         [SetUp]
         public void Setup()
         {
-        }
-
-        [Test]
-        public void TestOKPD2Type()
-        {
-            execTestTransfornXml(Resources.OKPD2TypeRequest);
         }
 
         // 1.	Удаления элементов XML declaration и processing instructions(при наличии)
@@ -79,7 +73,7 @@ namespace Transform.Test
             execTestTransfornXml(Resources.Test8);
         }
 
-        void execTestTransfornXml(string xml)
+        public static void execTestTransfornXml(string xml)
         {
             string resultJava = ExecTransformJava(xml);
             string result = ExecTransform(xml);
@@ -87,7 +81,7 @@ namespace Transform.Test
             Assert.AreEqual(resultJava, result);
         }
 
-        string ExecTransform(string xml)
+        public static string ExecTransform(string xml)
         {
             MemoryStream src = new MemoryStream(Encoding.UTF8.GetBytes(xml));
             src.Position = 0;
@@ -103,7 +97,7 @@ namespace Transform.Test
             return p;
         }
 
-        string ExecTransformJava(string xml)
+        public static string ExecTransformJava(string xml)
         {
             SMEVExecJava trnJava = new SMEVExecJava();
             return trnJava.doTransform(xml);

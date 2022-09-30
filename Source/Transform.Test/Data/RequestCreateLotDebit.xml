@@ -1,0 +1,3 @@
+<ns:RequestCreateLotDebit amount="100" lotNumber="string" comment="string" xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0" xmlns:ns1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.0">
+  <ns1:Reason>string</ns1:Reason>
+</ns:RequestCreateLotDebit>

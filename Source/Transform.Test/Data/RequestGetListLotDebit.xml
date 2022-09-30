@@ -1,0 +1,1 @@
+<ns:RequestGetListLotDebit lotNumber="string" dateFrom="2008-09-29" dateTo="2014-09-19" status="SUBSCRIBED" xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0"/>

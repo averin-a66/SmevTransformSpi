@@ -1,0 +1,22 @@
+<ns:RequestCreateSDIZElevator lotNumber="string" xmlns:ns="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0" xmlns:ns1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0" xmlns:ns2="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.0">
+  <ns1:OperationSDIZElevator>
+    <!--You have a CHOICE of the next 2 items at this level-->
+    <ns1:AcceptanceElevator dateDogovor="2008-09-29" NumberDogovor="string" storageArea="1.5E2" storagePeriod="2014-09-19" storageСonditions="string">
+      <ns1:operation>SHIPMENT</ns1:operation>
+      <ns1:storageType code="string" name="string" startDate="2018-11-01T08:36:46+03:00" endDate="2013-05-22T05:02:49+04:00"/>
+      <!--1 or more repetitions:-->
+      <ns1:ElevatorService code="string" name="string" startDate="2002-11-05T11:01:03+03:00" endDate="2002-06-24T19:46:32+04:00"/>
+      <!--Optional:-->
+      <ns1:Moving movingDate="2016-02-20+03:00" movingStorageСonditions="string">
+        <ns1:MovingStoragePlace>
+          <ns2:PostalCode>string</ns2:PostalCode>
+          <ns2:Address>string</ns2:Address>
+        </ns1:MovingStoragePlace>
+        <ns1:storageType code="string" name="string" startDate="2019-08-19T17:35:10" endDate="2018-02-04T17:35:59+03:00"/>
+      </ns1:Moving>
+    </ns1:AcceptanceElevator>
+    <ns1:ShipmentElevator>
+      <ns1:operation>ACCEPTANCE</ns1:operation>
+    </ns1:ShipmentElevator>
+  </ns1:OperationSDIZElevator>
+</ns:RequestCreateSDIZElevator>
