@@ -17,6 +17,24 @@ namespace Transform.Test.Tests.TestRequestFGIS
         }
 
         [Test]
+        public void TestRequestCanceledExtinctionRefusal()
+        {
+            execTestTransfornXml(Resources.RequestCanceledExtinctionRefusal);
+        }
+
+        [Test]
+        public void TestRequestCanceledLot()
+        {
+            execTestTransfornXml(Resources.RequestCanceledLot);
+        }
+
+        [Test]
+        public void TestRequestCanceledSDIZ()
+        {
+            execTestTransfornXml(Resources.RequestCanceledSDIZ);
+        }
+
+        [Test]
         public void TestRequestCreateExtinctionRefusal()
         {
             execTestTransfornXml(Resources.RequestCreateExtinctionRefusal);

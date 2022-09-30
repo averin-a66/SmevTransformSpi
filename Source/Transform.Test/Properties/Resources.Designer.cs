@@ -77,6 +77,33 @@ namespace Transform.Test.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCanceledExtinctionRefusal extinctionRefusalId=&quot;100&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot;/&gt;.
+        /// </summary>
+        internal static string RequestCanceledExtinctionRefusal {
+            get {
+                return ResourceManager.GetString("RequestCanceledExtinctionRefusal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ns:RequestCanceledLot lotNumber=&quot;string&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/lots/1.0.0&quot;/&gt;.
+        /// </summary>
+        internal static string RequestCanceledLot {
+            get {
+                return ResourceManager.GetString("RequestCanceledLot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string RequestCanceledSDIZ {
+            get {
+                return ResourceManager.GetString("RequestCanceledSDIZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на &lt;ns:RequestCreateExtinction SDIZNumber=&quot;string&quot; amount=&quot;100&quot; fullExtinction=&quot;false&quot; xmlns:ns=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/sdiz/1.0.0&quot; xmlns:ns1=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.0&quot; xmlns:ns2=&quot;urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.0&quot;&gt;
         ///  &lt;!--Zero or more repetitions:--&gt;
         ///  &lt;ns1:TransportInfo numberTransport=&quot;string&quot; numberСontainer=&quot;string&quot;&gt;

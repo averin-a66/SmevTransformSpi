@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace GostCryptography.Xml.SmevTransformSpi
+namespace GostCryptography.Xml.Smev
 {
     internal class XmlTextEncoder
     {

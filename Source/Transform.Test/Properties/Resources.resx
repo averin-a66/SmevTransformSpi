@@ -121,6 +121,15 @@
   <data name="OKPD2TypeRequest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Data\OKPD2Type.request.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="RequestCanceledExtinctionRefusal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCanceledExtinctionRefusal.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestCanceledLot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCanceledLot.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="RequestCanceledSDIZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\RequestCanceledSDIZ.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="RequestCreateExtinction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Data\RequestCreateExtinction.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

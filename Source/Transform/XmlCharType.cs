@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Threading;
 
-namespace GostCryptography.Xml.SmevTransformSpi
+namespace GostCryptography.Xml.Smev
 {
     internal struct XmlCharType
     {

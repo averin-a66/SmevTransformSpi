@@ -10,7 +10,7 @@ using System.Security;
 
 
 
-namespace GostCryptography.Xml.SmevTransformSpi
+namespace GostCryptography.Xml.Smev
 {
     internal static class XmlReservedNs
     {

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using GostCryptography.Xml.Smev;
 
-namespace GostCryptography.Xml.SmevTransformSpi
+namespace GostCryptography.Xml.Smev.Exe
 {
     internal class Program
     {
-        static string testStr1 = 
+        static string testStr1 =
  @"<qwe xmlns=""http://t.e.s.t"">
  <iop1 value="" test ""/>
  <myns:rty xmlns:myns=""http://y.e.s"">yes!</myns:rty>

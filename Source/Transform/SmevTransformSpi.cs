@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Text;
 
-namespace GostCryptography.Xml.SmevTransformSpi
+namespace GostCryptography.Xml.Smev
 {
     public class SmevTransformSpi
     {

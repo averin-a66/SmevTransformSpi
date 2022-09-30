@@ -3,7 +3,7 @@ using NUnit.Framework;
 using System.IO;
 using System.Text;
 using System.Xml;
-using GostCryptography.Xml.SmevTransformSpi;
+using GostCryptography.Xml.Smev;
 
 namespace Transform.Test.Tests.TestFromMetodichka
 {

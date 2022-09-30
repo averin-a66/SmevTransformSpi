@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmevTransformSpi", "Source\Transform\SmevTransformSpi.csproj", "{7F52C2A9-81F8-4E34-9EEF-FB7E155C3DB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transform.Test", "Source\Transform.Test\Transform.Test.csproj", "{9CE3B77C-E0E8-4C97-9F3D-AF2A5BE62EFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transform.Test", "Source\Transform.Test\Transform.Test.csproj", "{9CE3B77C-E0E8-4C97-9F3D-AF2A5BE62EFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmevTransformSpi.Exe", "Source\SmevTransformSpi.Exe\SmevTransformSpi.Exe.csproj", "{2176349B-E295-4AF1-A844-46E011D9FE13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9CE3B77C-E0E8-4C97-9F3D-AF2A5BE62EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE3B77C-E0E8-4C97-9F3D-AF2A5BE62EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE3B77C-E0E8-4C97-9F3D-AF2A5BE62EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2176349B-E295-4AF1-A844-46E011D9FE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2176349B-E295-4AF1-A844-46E011D9FE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2176349B-E295-4AF1-A844-46E011D9FE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2176349B-E295-4AF1-A844-46E011D9FE13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

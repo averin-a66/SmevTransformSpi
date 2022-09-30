@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Xml.XPath;
 using System.Xml;
 
-namespace GostCryptography.Xml.SmevTransformSpi
+namespace GostCryptography.Xml.Smev
 {
     internal static class ValidateNames
     {
