@@ -313,7 +313,7 @@ namespace GostCryptography.Xml.Smev
                         // use defined prefix
                         if (prefix != null && prefix.Length != 0 && (LookupNamespace(prefix) == -1))
                         {
-                            throw new ArgumentException("Xml_UndefPrefix");
+                            throw new ArgumentException("An undefined prefix is in use.");
                         }
                     }
                     else
@@ -424,7 +424,7 @@ namespace GostCryptography.Xml.Smev
 
                         if (XmlReservedNs.NsXmlNs != ns && ns != null)
                         {
-                            throw new ArgumentException("XmlnsBelongsToReservedNs");
+                            throw new ArgumentException("The 'xmlns' attribute is bound to the reserved namespace 'http://www.w3.org/2000/xmlns/'.");
                         }
                         if (localName == null || localName.Length == 0)
                         {
@@ -443,7 +443,7 @@ namespace GostCryptography.Xml.Smev
                         if (XmlReservedNs.NsXmlNs != ns && ns != null)
                         {
                             // add the below line back in when DOM is fixed
-                            throw new ArgumentException("XmlnsBelongsToReservedNs");
+                            throw new ArgumentException("The 'xmlns' attribute is bound to the reserved namespace 'http://www.w3.org/2000/xmlns/'.");
                         }
                         this.specialAttr = SpecialAttr.XmlNs;
                         this.prefixForXmlNs = null;
@@ -455,7 +455,7 @@ namespace GostCryptography.Xml.Smev
                             // use defined prefix
                             if (prefix != null && (LookupNamespace(prefix) == -1))
                             {
-                                throw new ArgumentException("Xml_UndefPrefix");
+                                throw new ArgumentException("An undefined prefix is in use.");
                             }
                         }
                         else if (ns.Length == 0)
@@ -496,7 +496,7 @@ namespace GostCryptography.Xml.Smev
                 {
                     if ((ns != null && ns.Length != 0) || (prefix != null && prefix.Length != 0))
                     {
-                        throw new ArgumentException("Xml_NoNamespaces");
+                        throw new ArgumentException("Cannot set the namespace if Namespaces is 'false'.");
                     }
                     if (localName == "xml:lang")
                     {
@@ -745,17 +745,17 @@ namespace GostCryptography.Xml.Smev
         {
             if (this.currentState == State.Closed)
             {
-                throw new InvalidOperationException("Xml_Closed");
+                throw new InvalidOperationException("The XmlReader is closed or in error state.");
             }
             else if (this.currentState == State.Error)
             {
-                throw new InvalidOperationException("Xml_WrongToken");
+                throw new InvalidOperationException("Token {0} in state {1} would result in an invalid XML document.");
             }
 
             State newState = this.stateTable[(int)token * 8 + (int)this.currentState];
             if (newState == State.Error)
             {
-                throw new InvalidOperationException("Xml_WrongToken");
+                throw new InvalidOperationException("Token {0} in state {1} would result in an invalid XML document.");
             }
 
             switch (token)
@@ -858,7 +858,7 @@ namespace GostCryptography.Xml.Smev
                     break;
 
                 default:
-                    throw new InvalidOperationException("Xml_InvalidOperation");
+                    throw new InvalidOperationException("Operation is not valid due to the current state of the object.");
             }
             this.currentState = newState;
             this.lastToken = token;
@@ -883,7 +883,7 @@ namespace GostCryptography.Xml.Smev
             {
                 if (top <= 0)
                 {
-                    throw new InvalidOperationException("Xml_NoStartTag");
+                    throw new InvalidOperationException("There was no XML start tag open.");
                 }
                 // if we are in the element, we need to close it.
                 AutoComplete(longFormat ? Token.LongEndElement : Token.EndElement);
@@ -994,7 +994,7 @@ namespace GostCryptography.Xml.Smev
         {
             if (XmlReservedNs.NsXmlNs == ns)
             {
-                throw new ArgumentException("Xml_CanNotBindToReservedNamespace");
+                throw new ArgumentException("Cannot bind to the reserved namespace.");
             }
 
             if (prefix == null)
@@ -1021,7 +1021,7 @@ namespace GostCryptography.Xml.Smev
             {
                 if (prefix.Length != 0 && ns.Length == 0)
                 {
-                    throw new ArgumentException("Xml_PrefixForEmptyNs");
+                    throw new ArgumentException("Cannot use a prefix with an empty namespace.");
                 }
 
                 int existingNsIndex = LookupNamespace(prefix);
@@ -1196,7 +1196,7 @@ namespace GostCryptography.Xml.Smev
         {
             if (name == null || name.Length == 0)
             {
-                throw new ArgumentException("Xml_EmptyName");
+                throw new ArgumentException("The empty string '' is not a valid name.");
             }
 
             int nameLength = name.Length;
@@ -1246,7 +1246,7 @@ namespace GostCryptography.Xml.Smev
                     return;
                 }
             }
-            throw new ArgumentException("Xml_InvalidNameChars, name");
+            throw new ArgumentException("Invalid name character in '{0}'.", name);
         }
 
         void HandleSpecialAttribute()
@@ -1270,7 +1270,7 @@ namespace GostCryptography.Xml.Smev
                     }
                     else
                     {
-                        throw new ArgumentException("Xml_InvalidXmlSpace, value");
+                        throw new ArgumentException("'{0}' is an invalid xml:space value.", value);
                     }
                     break;
                 case SpecialAttr.XmlNs:
@@ -1293,7 +1293,7 @@ namespace GostCryptography.Xml.Smev
                 {
                     if (XmlReservedNs.NsXml != ns)
                     {
-                        throw new ArgumentException("Xml_InvalidPrefix");
+                        throw new ArgumentException("Prefixes beginning with \"xml\" (regardless of whether the characters are uppercase, lowercase, or some combination thereof) are reserved for use by XML.");
                     }
                 }
             }

@@ -227,7 +227,8 @@ namespace Transform.Test.Properties {
         ///    &lt;!--Optional:--&gt;
         ///    &lt;ns1:LegalEntity&gt;
         ///      &lt;ns1:Name&gt;string&lt;/ns1:Name&gt;
-        ///      &lt;!--Optional:--&gt;        /// [остаток строки не уместился]&quot;;.
+        ///      &lt;!--Optional:--&gt;
+        /// [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string RequestGetListLot {
             get {

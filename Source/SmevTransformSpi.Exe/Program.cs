@@ -34,6 +34,7 @@ namespace GostCryptography.Xml.Smev.Exe
 
         static void Main(string[] args)
         {
+            Console.WriteLine(string.Format("Str[0]={0}, Str[1]={1}", new string[]{ "0", "1"}));
             MemoryStream src = new MemoryStream(Encoding.UTF8.GetBytes(testStr2));
             src.Position = 0;
             MemoryStream dst = new MemoryStream();

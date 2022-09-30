@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Xml.XPath;
 using System.Xml;
+using System.Xml.Linq;
+using System.Globalization;
 
 namespace GostCryptography.Xml.Smev
 {
@@ -363,19 +365,19 @@ namespace GostCryptography.Xml.Smev
         {
             // If the name is empty, throw an exception
             if (offsetStartChar >= s.Length)
-                throw new XmlException("Xml_EmptyName, string.Empty");
+                throw new XmlException("The empty string '' is not a valid name.");
 
             Debug.Assert(offsetBadChar < s.Length);
 
             if (xmlCharType.IsNCNameSingleChar(s[offsetBadChar]) && !XmlCharType.Instance.IsStartNCNameSingleChar(s[offsetBadChar]))
             {
                 // The error character is a valid name character, but is not a valid start name character
-                throw new XmlException("Xml_BadStartNameChar, XmlException.BuildCharExceptionArgs(s, offsetBadChar)");
+                throw new XmlException(string.Format("Name cannot begin with the '{0}' character, hexadecimal value {1}.", BuildCharExceptionArgs(s, offsetBadChar)));
             }
             else
             {
                 // The error character is an invalid name character
-                throw new XmlException("Xml_BadNameChar, XmlException.BuildCharExceptionArgs(s, offsetBadChar)");
+                throw new XmlException(string.Format("The '{0}' character, hexadecimal value {1}, cannot be included in a name.", BuildCharExceptionArgs(s, offsetBadChar)));
             }
         }
 
@@ -383,19 +385,19 @@ namespace GostCryptography.Xml.Smev
         {
             // If the name is empty, throw an exception
             if (offsetStartChar >= s.Length)
-                return new XmlException("Res.Xml_EmptyName, string.Empty");
+                return new XmlException("The empty string '' is not a valid name.");
 
             Debug.Assert(offsetBadChar < s.Length);
 
             if (xmlCharType.IsNCNameSingleChar(s[offsetBadChar]) && !xmlCharType.IsStartNCNameSingleChar(s[offsetBadChar]))
             {
                 // The error character is a valid name character, but is not a valid start name character
-                return new XmlException("Res.Xml_BadStartNameChar, XmlException.BuildCharExceptionArgs(s, offsetBadChar)");
+                return new XmlException(string.Format("Name cannot begin with the '{0}' character, hexadecimal value {1}.", BuildCharExceptionArgs(s, offsetBadChar)));
             }
             else
             {
                 // The error character is an invalid name character
-                return new XmlException("Res.Xml_BadNameChar, XmlException.BuildCharExceptionArgs(s, offsetBadChar)");
+                return new XmlException(string.Format("The '{0}' character, hexadecimal value {1}, cannot be included in a name.", BuildCharExceptionArgs(s, offsetBadChar)));
             }
         }
 
@@ -485,7 +487,7 @@ namespace GostCryptography.Xml.Smev
                         // Elements and attributes must have a non-empty local name
                         if (localName.Length == 0)
                         {
-                            if (throwOnError) throw new XmlException("Res.Xdom_Empty_LocalName, string.Empty");
+                            if (throwOnError) throw new XmlException("The local name for elements or attributes cannot be null or an empty string.");
                             return false;
                         }
                         break;
@@ -494,7 +496,7 @@ namespace GostCryptography.Xml.Smev
                         // Attribute local name cannot be "xmlns" if namespace is empty
                         if (ns.Length == 0 && localName.Equals("xmlns"))
                         {
-                            if (throwOnError) throw new XmlException("Res.XmlBadName, new string[] { nodeKind.ToString(), localName }");
+                            if (throwOnError) throw new XmlException(string.Format("A node of type '{0}' cannot have the name '{1}'.", new string[] { nodeKind.ToString(), localName }));
                             return false;
                         }
                         goto case XPathNodeType.Element;
@@ -503,7 +505,7 @@ namespace GostCryptography.Xml.Smev
                         // PI's local-name must be non-empty and cannot be 'xml' (case-insensitive)
                         if (localName.Length == 0 || (localName.Length == 3 && StartsWithXml(localName)))
                         {
-                            if (throwOnError) throw new XmlException("Res.Xml_InvalidPIName, localName");
+                            if (throwOnError) throw new XmlException(string.Format("'{0}' is an invalid name for processing instructions.", localName));
                             return false;
                         }
                         break;
@@ -512,7 +514,7 @@ namespace GostCryptography.Xml.Smev
                         // All other node types must have empty local-name
                         if (localName.Length != 0)
                         {
-                            if (throwOnError) throw new XmlException("Res.XmlNoNameAllowed, nodeKind.ToString()");
+                            if (throwOnError) throw new XmlException(string.Format("A node of type '{0}' cannot have a name.", nodeKind.ToString()));
                             return false;
                         }
                         break;
@@ -533,7 +535,7 @@ namespace GostCryptography.Xml.Smev
                             // If namespace is empty, then prefix must be empty
                             if (prefix.Length != 0)
                             {
-                                if (throwOnError) throw new XmlException("Res.Xml_PrefixForEmptyNs, string.Empty");
+                                if (throwOnError) throw new XmlException("Cannot use a prefix with an empty namespace.");
                                 return false;
                             }
                         }
@@ -542,7 +544,7 @@ namespace GostCryptography.Xml.Smev
                             // Don't allow empty attribute prefix since namespace is non-empty
                             if (prefix.Length == 0 && nodeKind == XPathNodeType.Attribute)
                             {
-                                if (throwOnError) throw new XmlException("Res.XmlBadName, new string[] { nodeKind.ToString(), localName }");
+                                if (throwOnError) throw new XmlException(string.Format("A node of type '{0}' cannot have the name '{1}'.", new string[] { nodeKind.ToString(), localName }));
                                 return false;
                             }
 
@@ -551,20 +553,20 @@ namespace GostCryptography.Xml.Smev
                                 // xml prefix must be mapped to the xml namespace
                                 if (!ns.Equals(XmlReservedNs.NsXml))
                                 {
-                                    if (throwOnError) throw new XmlException("Res.Xml_XmlPrefix, string.Empty");
+                                    if (throwOnError) throw new XmlException("Prefix \"xml\" is reserved for use by XML and can be mapped only to namespace name \"http://www.w3.org/XML/1998/namespace\".");
                                     return false;
                                 }
                             }
                             else if (prefix.Equals("xmlns"))
                             {
                                 // Prefix may never be 'xmlns'
-                                if (throwOnError) throw new XmlException("Res.Xml_XmlnsPrefix, string.Empty");
+                                if (throwOnError) throw new XmlException("Prefix \"xmlns\" is reserved for use by XML.");
                                 return false;
                             }
                             else if (IsReservedNamespace(ns))
                             {
                                 // Don't allow non-reserved prefixes to map to xml or xmlns namespaces
-                                if (throwOnError) throw new XmlException("Res.Xml_NamespaceDeclXmlXmlns, string.Empty");
+                                if (throwOnError) throw new XmlException("Prefix '' cannot be mapped to namespace name reserved for \"xml\" or \"xmlns\".");
                                 return false;
                             }
                         }
@@ -574,7 +576,7 @@ namespace GostCryptography.Xml.Smev
                         // PI's prefix and namespace must be empty
                         if (prefix.Length != 0 || ns.Length != 0)
                         {
-                            if (throwOnError) throw new XmlException("Res.Xml_InvalidPIName, CreateName(prefix, localName)");
+                            if (throwOnError) throw new XmlException(string.Format("'{0}' is an invalid name for processing instructions.", CreateName(prefix, localName)));
                             return false;
                         }
                         break;
@@ -583,7 +585,7 @@ namespace GostCryptography.Xml.Smev
                         // All other node types must have empty prefix and namespace
                         if (prefix.Length != 0 || ns.Length != 0)
                         {
-                            if (throwOnError) throw new XmlException("Res.XmlNoNameAllowed, nodeKind.ToString()");
+                            if (throwOnError) throw new XmlException(string.Format("A node of type '{0}' cannot have a name.", nodeKind.ToString()));
                             return false;
                         }
                         break;
@@ -615,7 +617,7 @@ namespace GostCryptography.Xml.Smev
             }
             else if (0 == colonPos || (name.Length - 1) == colonPos)
             {
-                throw new ArgumentException("Res.GetString(Res.Xml_BadNameChar, XmlException.BuildCharExceptionArgs(':', '\0')), \"name\"");
+                throw new ArgumentException(string.Format("The '{0}' character, hexadecimal value name, cannot be included in a name.", BuildCharExceptionArgs(':', '\0')));
             }
             else
             {
@@ -624,6 +626,51 @@ namespace GostCryptography.Xml.Smev
                 lname = name.Substring(colonPos, name.Length - colonPos);
             }
         }
-    }
 
+        internal static string[] BuildCharExceptionArgs(string data, int invCharIndex)
+        {
+            return BuildCharExceptionArgs(data[invCharIndex], invCharIndex + 1 < data.Length ? data[invCharIndex + 1] : '\0');
+        }
+
+        internal static string[] BuildCharExceptionArgs(char[] data, int invCharIndex)
+        {
+            return BuildCharExceptionArgs(data, data.Length, invCharIndex);
+        }
+
+        internal static string[] BuildCharExceptionArgs(char[] data, int length, int invCharIndex)
+        {
+            Debug.Assert(invCharIndex < data.Length);
+            Debug.Assert(invCharIndex < length);
+            Debug.Assert(length <= data.Length);
+
+            return BuildCharExceptionArgs(data[invCharIndex], invCharIndex + 1 < length ? data[invCharIndex + 1] : '\0');
+        }
+
+        internal static string[] BuildCharExceptionArgs(char invChar, char nextChar)
+        {
+            string[] aStringList = new string[2];
+
+            // for surrogate characters include both high and low char in the message so that a full character is displayed
+            if (XmlCharType.IsHighSurrogate(invChar) && nextChar != 0)
+            {
+                int combinedChar = XmlCharType.CombineSurrogateChar(nextChar, invChar);
+                aStringList[0] = new string(new char[] { invChar, nextChar });
+                aStringList[1] = string.Format(CultureInfo.InvariantCulture, "0x{0:X2}", combinedChar);
+            }
+            else
+            {
+                // don't include 0 character in the string - in means eof-of-string in native code, where this may bubble up to
+                if ((int)invChar == 0)
+                {
+                    aStringList[0] = ".";
+                }
+                else
+                {
+                    aStringList[0] = invChar.ToString(CultureInfo.InvariantCulture);
+                }
+                aStringList[1] = string.Format(CultureInfo.InvariantCulture, "0x{0:X2}", (int)invChar);
+            }
+            return aStringList;
+        }
+    }
 }

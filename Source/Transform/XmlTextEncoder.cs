@@ -207,7 +207,7 @@ namespace GostCryptography.Xml.Smev
                             }
                             else
                             {
-                                throw new ArgumentException("Res.GetString(Res.Xml_SurrogatePairSplit)");
+                                throw new ArgumentException("The second character surrogate pair is not in the input buffer to be written.");
                             }
                         }
                         else if (XmlCharType.IsLowSurrogate(ch))
@@ -435,7 +435,7 @@ namespace GostCryptography.Xml.Smev
                             throw new Exception("XmlConvert.CreateInvalidSurrogatePairException(lowChar, ch)");
                         }
                     }
-                    throw new ArgumentException("Res.GetString(Res.Xml_InvalidSurrogateMissingLowChar)");
+                    throw new ArgumentException("The surrogate pair is invalid. Missing a low surrogate character.");
                 }
                 else if (XmlCharType.IsLowSurrogate(ch))
                 {
@@ -495,7 +495,7 @@ namespace GostCryptography.Xml.Smev
         {
             if (XmlCharType.IsSurrogate(ch))
             {
-                throw new ArgumentException("Res.GetString(Res.Xml_InvalidSurrogateMissingLowChar)");
+                throw new ArgumentException("The surrogate pair is invalid. Missing a low surrogate character.");
             }
 
             string strVal = ((int)ch).ToString("X", NumberFormatInfo.InvariantInfo);
